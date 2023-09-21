@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AprendizController;
+use App\Http\Controllers\InstructorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,18 @@ Route::post('/aprendiz-modificar',[AprendizController::class,'update'])->name('a
 
 //ruta para eliminar un aprendiz
 Route::get('/aprendiz-eliminar-{id}', [AprendizController::class, 'delete'])->name('aprendiz.delete');
+
+
+//Instructor
+
+// ruta para acceder al Instructor 
+Route::get('/instructor',[InstructorController::class,'index'])->name('instructor.index');
+
+//ruta para registrar un nuevo aprendiz
+Route::post('/instructor-ingresar',[InstructorController::class,'create'])->name('instructor.create');
+
+//ruta para modificar un aprendiz
+Route::post('/instructor-modificar',[InstructorController::class,'update'])->name('instructor.update');
+
+//ruta para eliminar un aprendiz
+Route::get('/instructor-eliminar-{id}', [AprendizController::class, 'delete'])->name('instructor.delete');
