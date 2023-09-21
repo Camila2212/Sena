@@ -20,3 +20,12 @@ Route::get('/', function () {
 
 // ruta para acceder al aprendiz 
 Route::get('/aprendiz',[AprendizController::class,'index'])->name('aprendiz.index');
+
+//ruta para registrar un nuevo aprendiz
+Route::post('/aprendiz-ingresar',[AprendizController::class,'create'])->name('aprendiz.create');
+
+//ruta para modificar un aprendiz
+Route::post('/aprendiz-modificar',[AprendizController::class,'update'])->name('aprendiz.update');
+
+//ruta para eliminar un aprendiz
+Route::get('/aprendiz-eliminar-{id}', [AprendizController::class, 'delete'])->name('aprendiz.delete');
