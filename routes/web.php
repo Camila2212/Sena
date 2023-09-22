@@ -29,3 +29,7 @@ Route::post('/aprendiz-modificar',[AprendizController::class,'update'])->name('a
 
 //ruta para eliminar un aprendiz
 Route::get('/aprendiz-eliminar-{id}', [AprendizController::class, 'delete'])->name('aprendiz.delete');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// ruta para el loging
