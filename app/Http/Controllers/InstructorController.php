@@ -34,12 +34,41 @@ class InstructorController extends Controller
     public function update(Request $request){
         try
         {
-            $sql=DB::update('update instructores nombre=?, apellido=? where idInstructor',);
-
+            $sql=DB::update('update instructores set nombre=?, apellido=? where idInstructor=?',[
+              $request->nombre,
+              $request->apellido,
+              $request->id
+            ]);
+            if ($sql==0) {
+                $sql=1;
+            }
         }
         catch (\Throwable )
         {
-            
+            $sql=0;
         }
+        if ($sql==true) {
+            return back()->with('correcto','El instructor ha sido modificado');
+        } else {
+            return back()->with('incorrecto','Error el instructor no ha sido modificado');
+        }
+        
     }
+    public function delete($id){
+        try
+        {
+            $sql=DB::delete("delete from instructores where idInstructor=$id");
+           
+        }
+        catch (\Throwable )
+        {
+            $sql=0;
+        }
+        if ($sql==true) {
+            return back()->with("correcto","El Instructor ha sido eliminado correctamente");
+        } else {
+            return back()->with("incorrecto","Eror el instructor no ha sido eliminado");
+        }
+        
+        }
 }

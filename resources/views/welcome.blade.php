@@ -31,7 +31,9 @@
 </head>
 <body>
     <h1>Este el el welcome</h1>
-    <a href="{{ route('aprendiz.index')}}">Aprendiz</a>
+    <a href="{{ route('aprendiz.index')}}">Aprendiz</a><br>
+    <a href="{{route('instructor.index')}}">Instructor</a><br>
+    <a href="{{route('curso.index')}}">Curso</a>
    
 
     

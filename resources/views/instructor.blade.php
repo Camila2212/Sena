@@ -40,7 +40,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('aprendiz.create') }}" method="POST">
+                    <form action="{{ route('instructor.create') }}" method="POST">
                         @csrf
                         <div class="mb-0">
                             <input type="hidden" class="form-control" id="id" aria-describedby="emailHelp"
@@ -70,7 +70,7 @@
 
     <div class="p-5 table-responsive">
         <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalInsertar">Registrar
-            Aprendiz</button>
+            instructor</button>
 
 
         <table class="table table-hover table-striped table-bordered">
@@ -94,7 +94,7 @@
                             <a href="{{route('instructor.delete', $item->idInstructor)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
 
-
+                        
 
                         <!-- Modal Modificar Instructor -->
                         <div class="modal fade" id="modalModificar{{ $item->idInstructor }}" tabindex="-1" aria-labelledby="exampleModalLabel"
