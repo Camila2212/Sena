@@ -59,5 +59,6 @@ Route::post('/curso-ingresar',[CursoController::class,'create'])->name('curso.cr
 //ruta para modificar un curso
 Route::post('/curso-modificar',[CursoController::class,'update'])->name('curso.update');
 
-//ruta para eliminar un instructor
-Route::get('/curso-eliminar-{id}', [CursoController::class, 'delete'])->name('curso.delete');
+//ruta para eliminar un curso
+Route::get('/curso-eliminar-{id}',[CursoController::class, 'delete'])->name('curso.delete');
+
