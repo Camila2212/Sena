@@ -64,7 +64,7 @@
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Insertar</button>
                         </div>
-
+                        
                     </form>
 
                 </div>
@@ -149,6 +149,7 @@
             </tbody>
         </table>
     </div>
+    <a href="{{route('/curso')}}">volver a curso</a>
     </div>
 
 </body>
