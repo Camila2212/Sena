@@ -13,36 +13,36 @@ class CursoController extends Controller
             return view('curso')->with('datos',$datos);
     
         }
-        public function create(Request $request){
-            try
+        public function create(Request $request)
+{
+    try
             {
 
-            //     dd($request->idInstructor);
+                // // Verificar si el idInstructor existe en la base de datos de instructores
+                $instructorExists = DB::table('instructores')->where('idInstructor', $request->idInstructor)->exists();
 
-            // // Verificar si el idInstructor existe en la base de datos de instructores
-            // $instructorExists = DB::table('instructores')->where('idInstructor', $request->idInstructor)->exists();
+                if (!$instructorExists) {
+                    
+                    return back()->with('incorrecto', 'El instructor no existe en la base de datos.');
+                }
 
-            // if (!$instructorExists) {
-                
-            //     return back()->with('incorrecto', 'El instructor no existe en la base de datos.');
-            // }
-
-            // // Si el instructor existe, inserta el nuevo curso
-            // $sql = DB::table('cursos')->insert([
-            //     'nombre' => $request->nombre,
-            //     'idInstructor' => $request->idInstructor,
-            // ]);
-
-
-                $sql=DB::insert('insert into cursos (idCurso, nombre, idInstructor) values(Null, ?, ?)',[
-                    $request->nombre,
-                    $request->idInstructor
+                // Si el instructor existe, inserta el nuevo curso
+                $sql = DB::table('cursos')->insert([
+                    'nombre' => $request->nombre,
+                    'idInstructor' => $request->idInstructor,
                 ]);
 
+                // $sql=DB::insert('insert into cursos (idCurso, nombre, idInstructor) values(Null, ?, ?)',[
+                //     $request->nombre,
+                //     $request->idInstructor
+                // ]);
+                // return view('cursos', compact('instructores'))->with('datos', $datos);
+ 
+                
+  
+            }catch (\Throwable $e) 
 
 
-            }
-            catch (\Throwable )
             {
                 $sql=0;
             }
@@ -79,8 +79,8 @@ class CursoController extends Controller
         public function delete($id){
             try
             {
-                $sql=DB::delete("delete from cursos where idCursos=$id");
-               
+                $sql=DB::delete("delete from cursos where idCurso=$id");
+                
             }
             catch (\Throwable )
             {
@@ -91,12 +91,11 @@ class CursoController extends Controller
             } else {
                 return back()->with("incorrecto","Eror el Curso no ha sido eliminado");
             }
-            
+        
             }
     
 
-
-
+            
 
 
 

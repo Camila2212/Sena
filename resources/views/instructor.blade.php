@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    @if(session('campo'))
+    <p>Nombre: {{ session('campo')[0]->nombre }}</p>
+@endif
+
     <h1 id="ha" class="text-center">Bienvenido Instructor</h1>
 
     @if (session('correcto'))

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Instructor</title>
+    <title>Curso</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/css/bootstrap.css">
     <script src="https://kit.fontawesome.com/099486b956.js" crossorigin="anonymous"></script>
@@ -14,6 +14,7 @@
 
 <body>
     <h1 id="ha" class="text-center">Bienvenido curso</h1>
+    
 
     @if (session('correcto'))
         <div class="alert alert-info">{{ session('correcto') }}</div>
@@ -55,8 +56,18 @@
                             <label for="idInstructor" class="form-label">idInstructor </label>
                             <input type="number" name="idInstructor" class="form-control" id="idInstructor">
                         </div>
+{{-- 
+                        <label for="idInstructor">Selecciona un instructor:</label>
+                        <select name="idInstructor" id="idInstructor">
+                            @foreach($instructores as $idInstructor)
+                                <option value="{{ $idInstructor }}">{{ $nombre }}</option>
+                            @endforeach
+                        </select>
+                         --}}
 
-                        <div class="modal-footer">
+                         
+                         
+                           
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Insertar</button>
                         </div>
@@ -91,7 +102,7 @@
                         <td>
                             <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#modalModificar{{ $item->idCurso }}"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="{{route('instructor.delete', $item->idCurso)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
+                            <a href="{{route('curso.delete', $item->idCurso)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-user-minus"></i></a>
                         </td>
 
                         
