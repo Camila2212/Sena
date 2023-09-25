@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AprendizController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\InstructorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +31,33 @@ Route::post('/aprendiz-modificar',[AprendizController::class,'update'])->name('a
 
 //ruta para eliminar un aprendiz
 Route::get('/aprendiz-eliminar-{id}', [AprendizController::class, 'delete'])->name('aprendiz.delete');
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// ruta para el loging
+
+//Instructor
+
+// ruta para acceder al Instructor 
+Route::get('/instructor',[InstructorController::class,'index'])->name('instructor.index');
+
+//ruta para registrar un nuevo Instructor
+Route::post('/instructor-ingresar',[InstructorController::class,'create'])->name('instructor.create');
+
+//ruta para modificar un instructor
+Route::post('/instructor-modificar',[InstructorController::class,'update'])->name('instructor.update');
+
+//ruta para eliminar un instructor
+Route::get('/instructor-eliminar-{id}', [InstructorController::class, 'delete'])->name('instructor.delete');
+
+
+//Curso
+
+//ruta para acceder al curso
+Route::get('/curso',[CursoController::class, 'index'])->name('curso.index');
+
+//ruta para registrar un nuevo curso
+Route::post('/curso-ingresar',[CursoController::class,'create'])->name('curso.create');
+
+//ruta para modificar un curso
+Route::post('/curso-modificar',[CursoController::class,'update'])->name('curso.update');
+
+//ruta para eliminar un instructor
+Route::get('/curso-eliminar-{id}', [CursoController::class, 'delete'])->name('curso.delete');
