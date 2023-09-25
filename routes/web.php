@@ -62,3 +62,4 @@ Route::post('/curso-modificar',[CursoController::class,'update'])->name('curso.u
 //ruta para eliminar un curso
 Route::get('/curso-eliminar-{id}',[CursoController::class, 'delete'])->name('curso.delete');
 
+algo
